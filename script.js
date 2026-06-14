@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (githubBtn) {
         githubBtn.addEventListener("click", () => {
-            window.open("https://tncks4352-create.github.io/vscard/", "_blank");
+            window.open("https://github.com/tncks4352-create/", "_blank");
         });
     }
 });
