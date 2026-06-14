@@ -1,0 +1,140 @@
+:root{
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#111827;
+    --sub:#6b7280;
+    --border:#e5e7eb;
+    --accent:#2563eb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--bg);
+    font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    padding:24px;
+}
+
+.card{
+    width:100%;
+    max-width:480px;
+    background:var(--card);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.06),
+        0 8px 16px rgba(0,0,0,.03);
+}
+
+.profile{
+    text-align:center;
+}
+
+.profile-image{
+    width:150px;
+    height:150px;
+    margin:0 auto 24px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #f1f5f9;
+    background:#fff;
+}
+
+.profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.name{
+    font-size:38px;
+    font-weight:800;
+    color:var(--text);
+    margin-bottom:10px;
+}
+
+.job{
+    font-size:18px;
+    color:var(--sub);
+}
+
+.divider{
+    height:1px;
+    background:var(--border);
+    margin:32px 0;
+}
+
+.info{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.info-item{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.label{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#9ca3af;
+}
+
+.value{
+    font-size:18px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.value a{
+    text-decoration:none;
+    color:inherit;
+    transition:.2s;
+}
+
+.value a:hover{
+    color:var(--accent);
+}
+
+.footer{
+    margin-top:32px;
+    text-align:center;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+@media (max-width:600px){
+    .card{
+        padding:28px;
+    }
+
+    .profile-image{
+        width:120px;
+        height:120px;
+    }
+
+    .name{
+        font-size:30px;
+    }
+
+    .value{
+        font-size:16px;
+    }
+}
