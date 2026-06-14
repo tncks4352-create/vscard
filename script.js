@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const copyEmailBtn = document.getElementById("copyEmailBtn");
     const copyPhoneBtn = document.getElementById("copyPhoneBtn");
     const githubBtn = document.getElementById("githubBtn");
+    const portfolioBtn = document.getElementById("portfolioBtn");
 
     const copyToClipboard = async (text, button, successText) => {
         try {
@@ -78,6 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (githubBtn) {
         githubBtn.addEventListener("click", () => {
             window.open("https://github.com/tncks4352-create/", "_blank");
+        });
+    }
+
+    if (portfolioBtn) {
+        portfolioBtn.addEventListener("click", () => {
+            window.open(
+                "https://drive.google.com/drive/folders/1z2Ocv6AE4oE7Ki-IDiw93Jb0FuZpQr8F?usp=drive_link",
+                "_blank"
+            );
         });
     }
 });
