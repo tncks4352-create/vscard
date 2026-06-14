@@ -1,11 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
     const card = document.querySelector(".card");
-    const emailLink = document.querySelector('a[href^="mailto:"]');
 
-    // 카드 hover 효과용 스타일 추가
+    const emailText = document.getElementById("emailText");
+    const phoneText = document.getElementById("phoneText");
+
+    const copyEmailBtn = document.getElementById("copyEmailBtn");
+    const copyPhoneBtn = document.getElementById("copyPhoneBtn");
+    const githubBtn = document.getElementById("githubBtn");
+
+    const copyToClipboard = async (text, button, successText) => {
+        try {
+            await navigator.clipboard.writeText(text);
+
+            const originalText = button.textContent;
+
+            button.textContent = successText;
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1500);
+        } catch (error) {
+            console.error("클립보드 복사 실패:", error);
+            alert("복사에 실패했습니다.");
+        }
+    };
+
     if (card) {
-        card.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
-
         card.addEventListener("mouseenter", () => {
             card.style.transform = "translateY(-12px)";
             card.style.boxShadow =
@@ -19,28 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 이메일 클릭 시 클립보드 복사
-    if (emailLink) {
-        emailLink.addEventListener("click", async (event) => {
+    if (emailText) {
+        emailText.addEventListener("click", (event) => {
             event.preventDefault();
-
-            const email = emailLink.textContent.trim();
-
-            try {
-                await navigator.clipboard.writeText(email);
-
-                const originalText = emailLink.textContent;
-                emailLink.textContent = "이메일이 복사되었습니다";
-
-                setTimeout(() => {
-                    emailLink.textContent = originalText;
-                }, 1500);
-            } catch (error) {
-                console.error("클립보드 복사 실패:", error);
-                alert("이메일 복사에 실패했습니다.");
-            }
+            copyToClipboard(emailText.textContent.trim(), emailText, "복사 완료!");
         });
     }
 
-    console.log("웹명함 카드가 정상적으로 로드되었습니다.");
+    if (phoneText) {
+        phoneText.addEventListener("click", (event) => {
+            event.preventDefault();
+            copyToClipboard(phoneText.textContent.trim(), phoneText, "복사 완료!");
+        });
+    }
+
+    if (copyEmailBtn && emailText) {
+        copyEmailBtn.addEventListener("click", () => {
+            copyToClipboard(
+                emailText.textContent.trim(),
+                copyEmailBtn,
+                "✓ 이메일 복사 완료"
+            );
+        });
+    }
+
+    if (copyPhoneBtn && phoneText) {
+        copyPhoneBtn.addEventListener("click", () => {
+            copyToClipboard(
+                phoneText.textContent.trim(),
+                copyPhoneBtn,
+                "✓ 전화번호 복사 완료"
+            );
+        });
+    }
+
+    if (githubBtn) {
+        githubBtn.addEventListener("click", () => {
+            window.open("https://tncks4352-create.github.io/vscard/", "_blank");
+        });
+    }
 });

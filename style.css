@@ -38,6 +38,9 @@ body{
     box-shadow:
         0 0 25px rgba(219,187,251,.15),
         0 10px 30px rgba(0,0,0,.5);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .profile{
@@ -112,6 +115,40 @@ body{
 
 .value a:hover{
     color:var(--accent);
+}
+
+.button-group{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.action-btn{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #dbbbfb;
+    background:#181818;
+    color:#ffffff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    font-family:inherit;
+    text-align:center;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.action-btn:hover{
+    background:#dbbbfb;
+    color:#111111;
+    transform:translateY(-2px);
+}
+
+button.action-btn{
+    appearance:none;
+    outline:none;
 }
 
 .footer{
